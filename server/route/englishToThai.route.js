@@ -1,9 +1,13 @@
 const express = require("express");
 
-const { getAllData } = require("../controller/englishToThai.controller.js");
+const {
+  getAllData,
+  englishToThai,
+} = require("../controller/englishToThai.controller.js");
 
 const router = express.Router();
 
-router.get("/thai-english", getAllData);
+router.get("/english-thai", getAllData);
+router.post("/english-thai", englishToThai);
 
 module.exports = router;
