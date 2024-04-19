@@ -22,7 +22,10 @@ const typing = ({ params }) => {
 
     if (response.ok) {
       if (result.data.includes("undefined")) {
-        toast.warning("Incorrect input data type!!!");
+        params.lang == "eng-thai"
+          ? toast.warning("Incorrect input data type!!!")
+          : toast.warning("โปรดกรอกข้อมูลให้ถูกต้อง!!!");
+
         return;
       }
       setResult(result.data);
