@@ -8,7 +8,6 @@ const getKeyByValue = (data, value) => {
 
 const getAllData = async (req, res) => {
   const data = JSON.parse(rawData);
-  let test = getKeyByValue(data, "ฉ");
 
   res.status(200).json({ data });
 };
@@ -21,6 +20,10 @@ const englishToThai = (req, res) => {
   const data = JSON.parse(rawData);
 
   for (const character of input) {
+    if (character == " ") {
+      thaiWords += " ";
+      continue;
+    }
     thaiWords += getKeyByValue(data, character);
   }
 
