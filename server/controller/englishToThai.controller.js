@@ -6,12 +6,6 @@ const getKeyByValue = (data, value) => {
   return Object.keys(data).find((key) => data[key] === value);
 };
 
-const getAllData = async (req, res) => {
-  const data = JSON.parse(rawData);
-
-  res.status(200).json({ data });
-};
-
 const englishToThai = (req, res) => {
   const input = req.body.inputData;
   console.log(req.body);
@@ -24,10 +18,11 @@ const englishToThai = (req, res) => {
       thaiWords += " ";
       continue;
     }
+
     thaiWords += getKeyByValue(data, character);
   }
 
   return res.status(200).json({ data: thaiWords });
 };
 
-module.exports = { getAllData, englishToThai };
+module.exports = { englishToThai };
